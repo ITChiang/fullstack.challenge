@@ -32,3 +32,41 @@
   @include title-text;
   color: $blackColor;
 }
+.navBar{
+  display: flex;
+  margin-bottom: 15px;
+}
+.button{
+  @include body-medium-text;
+  display: block;
+  margin-left: 35px;
+  padding:8px 10px;
+  border-radius: 5px;
+  font-size:12px;
+  background-color:rgb(110, 110, 110);
+  color:#fff;
+  border: none;
+}
+.button:hover{
+  background-color:rgb(168, 168, 168);
+}
+.active{
+  background-color:rgb(146, 146, 146);
+}
+.unActive{
+  background-color:rgb(196, 196, 196);
+}
+hr{
+  width: 80%;
+  height: 1px;
+  background-color: gray;
+  border-radius: 8px;
+}
+.subTitle{
+  @include body-medium-text;
+  margin-left: 35px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(196, 196, 196);
+  padding:5px 10px ;
+  border-radius: 8px;
+}
