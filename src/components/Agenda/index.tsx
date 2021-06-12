@@ -39,6 +39,13 @@ const Agenda = (): ReactElement => {
         .sort(compareByDateTime),
     [account],
   )
+  /**
+   *  currentFilter: Determine the current state of filtering agendas
+   *  grouped: Determine agendas are being grouped or not.
+   *  newEvents: Store the events after filtering by calendar ID
+   *  groupedEvents: Store the events based on the department
+   * 
+   */
   const title = useMemo(() => greeting(DateTime.local().hour), [DateTime.local().hour])
   const [currentFilter, setFilter] = useState("LIST_ALL");
   const [grouped, setGrouped] = useState(false);
@@ -56,7 +63,10 @@ const Agenda = (): ReactElement => {
   const groupHanlder = (): void => {
     grouped ? setGrouped(false) : setGrouped(true);
   }
-
+  /**
+   * Grouping the agenda by department
+   * 
+   */
   const groupedList =
     Object.keys(groupedEvents).map((department:string) => {
       return (
@@ -77,6 +87,10 @@ const Agenda = (): ReactElement => {
         <EventCell key={event.id} calendar={calendar} event={event} />
       ))}
     </List>
+  /**
+   * Display the agenda base on the state
+   * 
+   */
   const listContainer = grouped ? groupedList : unGroupList;
   //--------------
   return (
